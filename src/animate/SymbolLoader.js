@@ -19,7 +19,7 @@ let SymbolLoader = function() {
         } else if (data.nodeName && data.nodeName === 'IMG') {
             // Add individual images to the texture cache by their
             // short symbol name, not the URL
-            PIXI.Texture.addTextureToCache(
+            PIXI.Texture.addToCache(
                 resource.texture,
                 resource.name
             );
@@ -29,6 +29,6 @@ let SymbolLoader = function() {
 };
 
 // Assign to the loader
-PIXI.loaders.Loader.addPixiMiddleware(SymbolLoader);
+PIXI.Loader.registerPlugin(SymbolLoader);
 
 export default SymbolLoader;
